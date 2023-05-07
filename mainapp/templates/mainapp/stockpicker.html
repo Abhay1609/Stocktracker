@@ -1,0 +1,42 @@
+{% extends 'mainapp/basic.html' %}
+{% load static %}
+{% block title %}
+StockPicker
+{% endblock %}
+{% block css %}
+<style></style>
+{% endblock %}
+{% block body %}
+<div class="container">
+  <h1>Live Stock Tracker</h1>
+  <p>Select your favourite stocks</p>
+  <form action="/stock">
+    <label for="stockpicker">Select Stocks:</label>
+<!--<select class="form-select form-select-lg mb-3" size="3" aria-label="size 3 select example" name="stockpicker">-->
+  <select class="form-select form-select-lg mb-3"  aria-label="multiple select example" name="stockpicker"  multiple>
+<!--  <select class="select" id="select" multiple data-mdb-placeholder="Example placeholder" multiple>-->
+    {% for i in stockpicker %}
+
+    <option value="{{i}}">{{i}}</option>
+
+  {% endfor %}
+    </select>
+    <br>
+    <div class="d-grid gap-2">
+  <input class="btn btn-primary" type="submit" value="Submit">
+
+</div>
+
+
+</form>
+  </div>
+
+
+{% endblock %}
+{% block js %}
+<script>
+<!-- const value =document.getElementById('select').multiple=true;-->
+<!--  console.log(i)--/>
+<!--console.log(value)-->
+</script>
+{% endblock %}
